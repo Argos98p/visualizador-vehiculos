@@ -378,6 +378,10 @@ export function Visualizador({tipo, id, data, extras}) {
                     onClick={handleActivateEditMode}>Añadir recursos</button>
             </div>
 
+            <div className="Hotpost-list">
+                <button>Hotspot</button>
+            </div>
+
 
             <div className="reel-container">
                 <div className={

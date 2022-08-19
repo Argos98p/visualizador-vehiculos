@@ -18,6 +18,14 @@
   z-index: 999;
 }
 
+
+.hHotpost-list{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
 .button-option{
   background-color: rgba(0, 0, 0, 0.705);
   color: white;
