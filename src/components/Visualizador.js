@@ -313,6 +313,7 @@ export function Visualizador({tipo, id, data, extras}) {
                             }`*/
                         }
 
+                        location="../carro2" format="jpg" count="225"
 
                         autoplaySpeed={70}
                         //autoplay={true}
@@ -321,11 +322,9 @@ export function Visualizador({tipo, id, data, extras}) {
                         maxZoom={3}
                         minZoom={1}
                         onZoom={zoomValueHandler}
-                        images={images}
+                        //images={images}
                         //format="png"
-                        count={
-                            images.length
-                        }
+                        //count={images.length}
                         onFrameChange={frameChangeHandler}
                         onAutoplayStart={
                             () => setIsAutoPlayRunning(true)
@@ -471,13 +470,10 @@ export function Visualizador({tipo, id, data, extras}) {
         :getVisualizador()
         }
       
-
       {tipo==="vehiculo"
       ?<NavigationCarButtons onOpenDoors={handleOpenDoors} onCloseDoors={handleCloseDoors} imagesFramesScenes={imagesFramesScenes} onInterior={handleInterior}></NavigationCarButtons>
       :<NavigationObjectButttons imagesFramesScenes={imagesFramesScenes}></NavigationObjectButttons>
       }
-      
-
 
       <div className="options-container">
         <OptionButtons
@@ -497,8 +493,7 @@ export function Visualizador({tipo, id, data, extras}) {
           Extras
         </button>
         <div className={`reel ${!visibleExtras && "no-visible"} `}>
-          
-          
+                    
           <ReelImages id={id}></ReelImages>
         </div>
       </div>
