@@ -15,17 +15,12 @@ export default function NoEncontrado({idObjeto}){
   useEffect(() => {
     window.location.replace('https://marketa3d.com/product-category/vehiculos/');
     return () => {
-
     };
   }, []);
     return (
 
       <div>
-      {/*<h2>Elemento con el id {idObjeto} no encontrado</h2>*/}
-      
-      {/*<LottieNotFound></LottieNotFound>*/}
-      {/*<h2>Otros automoviles disponibles</h2>*/}
-      {/*<Gallery images={posts}/>*/}
+
   </div>
       
         
