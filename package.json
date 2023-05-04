@@ -57,7 +57,7 @@
     "react-vertical-timeline-component": "^3.6.0",
     "reactjs-popup": "^2.0.5",
     "reactstrap": "^9.1.2",
-    "sass": "^1.54.9",
+    "sass": "^1.62.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6",
     "underscore": "^1.13.6",
@@ -91,8 +91,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "node-sass": "^7.0.3",
-    "sass-loader": "^13.0.2"
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }

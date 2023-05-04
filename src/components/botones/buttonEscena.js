@@ -20,6 +20,9 @@ const ButtonEscena = memo(({escenaInfo, onClick , activo,disabled})=>{
         case "interior":
             icono = <img src="/iconos/interior-carro.png" alt=""/>
             break;
+        case "objeto":
+            icono = <img src="/iconos/objeto.png" alt=""/>
+            break;
         default:
             icono = <FaCarSide></FaCarSide>
             break;

@@ -32,6 +32,11 @@
   justify-content: center;*/
 
   .imagesContainer{
+    ._2VqNg{
+      object-fit: contain;
+      max-height: 100vh;
+      max-width: 100%;
+    }
     .addHotspotCursor{
       cursor:url(http://www.rw-designer.com/cursor-extern.php?id=24819)22 14.5, pointer !important;
     }

@@ -415,7 +415,7 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
                         <ButtonEscena key={
                             escena[0]
                         }
-                                      escenaInfo={escena}
+                                      escenaInfo={["", {nombre:"objeto"}]}
                                       onClick={()=>handleButtonEscena(index)}
                                       onTouch={()=>handleButtonEscena(index)}
                                       activo={
@@ -960,7 +960,7 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
             return <div className={`button-escena_navigation-item`}  onClick={()=>{setIsAutoPlayRunning(!isAutoPlayRunning);
                 tridiRef.current.toggleAutoplay(!isAutoPlayRunning)}} >
                 <button  data-for='soclose1' data-tip="Girar" className={`button-escena-btn ${isAutoPlayRunning===true ? " activo":""}`} >
-                    <img src="/iconos/giro-carro.png" alt=""/>
+                    <img src="/iconos/rotate.png" alt=""/>
                 </button>
                 <ReactTooltip  id="soclose1" place="right" effect="solid"  disable={isMobile}> Girar
                 </ReactTooltip>
