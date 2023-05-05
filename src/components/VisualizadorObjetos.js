@@ -486,7 +486,7 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
 
     let updateEscenas = (index)=>{
         //console.log(index)
-        if(index==="1" || index==="2"){
+        if(index==="1" || index==="2" || index==="0" ){
             // console.log('entra qui')
 
             setLoadStatus(true)
@@ -1014,7 +1014,7 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
                 <ToastContainer />
                 <div key={"buttons"} className="visualizador_top-buttons ">
                     {botonCompartir()}
-                    {botonVisibleHotspots()}
+                    {/*botonVisibleHotspots()*/}
 
                     {/*botonInfoObject()*/}
                     {botonAgregarHotspot()}
