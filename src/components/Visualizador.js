@@ -816,14 +816,25 @@ export function Visualizador({id, extras,edit,marketa}) {
                             </div>
                         </div>
 
+                        {
+                            <div className={"background-image-blur"} style={{backgroundImage: "url(" + imgForInfoModal + ")"}}   >
 
-                        {<div  {...doubleTap} className={`imagesContainer ${ loadStatus===true ? "" : "abajo"}`}
+
+                            </div>
+                        }
+
+                        {
+
+
+                            <div  {...doubleTap} className={`imagesContainer ${ loadStatus===true ? "" : "abajo"}`}
                               //onClick={clickOnTridi}
                               onDoubleClick={doubleClickOnTridi}
                               ref={containerRef}>
 
                             {escenasSrcImages}
-                        </div>}
+                        </div>
+
+                        }
 
                     </div>
                 </>

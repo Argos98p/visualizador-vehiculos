@@ -585,6 +585,12 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
                                            size={70}/>
                             </div>
                         </div>
+                        {
+                            <div className={"background-image-blur"} style={{backgroundImage: "url(" + imgForInfoModal + ")"}}   >
+
+
+                            </div>
+                        }
 
 
                         {<div  {...doubleTap} className={`imagesContainer ${ loadStatus===true ? "" : "abajo"}`}

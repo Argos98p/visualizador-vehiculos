@@ -20,7 +20,7 @@ function numberFramesInScene(id,escena){
 }*/
 
 function completeImageUrl(path){
-    return `${BaseURL}/images/getimage?path=${path}`;
+    return `${BaseURL}/ObjetosVirtuales${path}`;
 }
 
 function getExtrasUrl(id){
