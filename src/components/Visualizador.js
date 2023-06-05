@@ -121,6 +121,8 @@ export function Visualizador({id, extras,edit,marketa}) {
 
                         setLogoEmpresa(logoEmpresaImage(response.data.idusuario))
                     }
+
+                    setImgForModal(completeImageUrl(`/${id}${response.data.escenas[0].imagenes[1].path}`));
                     setFrames(numberOfFrames)
                 }
 
@@ -258,11 +260,7 @@ export function Visualizador({id, extras,edit,marketa}) {
             }
 
         }
-        if(imgForInfoModal === ""){
-            if(arrayFrames.length>0){
-                setImgForModal(arrayFrames[0]);
-            }
-        }
+
         return arrayFrames;
     }
 

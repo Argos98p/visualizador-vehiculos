@@ -10,6 +10,7 @@
 
     border: 0 red solid !important;
     .popup-info-div-container{
+      height: 100%;
 
 
       display: flex;
@@ -56,7 +57,7 @@
         img{
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
         }
       }
     }
@@ -101,6 +102,7 @@
     .popup-info-container-content{
       width: 85% !important;
       .popup-info-div-container{
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

@@ -102,6 +102,9 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
                     for(let index in response.data.escenas){
                         numberOfFrames[index] = Object.keys(response.data.escenas[index].imagenes).length;
                     }
+
+                    setImgForModal(completeImageUrl(`/${id}${response.data.escenas[0].imagenes[1].path}`));
+
                     /*
                     if(numberOfFrames[2]===2){
                         setInterior360(true)
@@ -234,6 +237,7 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
         let arrayFrames=[]
         if(n!==0){
             escenaNumber= escena.imagenes[1].path.split("/")[1];
+
         }
         for(let i=1;i<=n;i++){
             if(imagenesSinFondo && escena.nombre !== "interior"){
@@ -244,11 +248,7 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
             }
 
         }
-        if(imgForInfoModal === ""){
-            if(arrayFrames.length>0){
-                setImgForModal(arrayFrames[0]);
-            }
-        }
+
         return arrayFrames;
     }
 
