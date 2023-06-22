@@ -1,6 +1,7 @@
 import React, {useCallback, useMemo} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {getActiveElement} from "@testing-library/user-event/dist/utils";
+import {useTranslation} from "react-i18next";
 const baseStyle = {
     marginTop:'10px',
     marginBottom:'10px',
@@ -33,6 +34,9 @@ const rejectStyle = {
 
 function AddPdf({addPdfVis}) {
 
+    const {t} = useTranslation("global");
+
+
 
     const onDrop = useCallback(acceptedFiles => {
         console.log(acceptedFiles)
@@ -60,7 +64,7 @@ function AddPdf({addPdfVis}) {
         </aside>
             <div {...getRootProps({style})}>
                 <input {...getInputProps()} />
-                <p>Arrastre o toque para seleccionar un pdf</p>
+                <p>{t("pdf_popup.upload_text")}</p>
             </div>
 
         </section>

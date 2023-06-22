@@ -1,7 +1,9 @@
 import React from "react";
+import {useTranslation} from "react-i18next";
 
 
     const PopupListaHotspot =({listaHotspots,onClickDeleteHotspot})=>{
+        const {t} = useTranslation("global");
 
     function handleDeleteHotspot(itemObject){
         onClickDeleteHotspot(itemObject.item);
@@ -10,7 +12,7 @@ import React from "react";
     function handleListaHotspots(){
 
         if(listaHotspots.length===0){
-            return (<h6>No se encontron hotspots</h6>);
+            return (<h6>{t("hotspots_lists.not_found")}</h6>);
         }
         if(listaHotspots){
             let nombresHotspots=[]
@@ -31,7 +33,7 @@ import React from "react";
             //return null
 
         }
-        return (<h1>No se encontron hotspots</h1>);
+        return (<h1>{t("hotspots_lists.not_found")}</h1>);
     }
 
     return(

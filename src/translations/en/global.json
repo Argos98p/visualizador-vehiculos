@@ -24,6 +24,24 @@
     "select_hotspot": "select a hotspot type",
     "create": "Create",
     "hotspot_title_placeholder": "Enter a title or description"
+  },
+  "pdf_popup": {
+    "upload_text": "Drag or tap to upload a PDF file"
+  },
+  "youtube_popup": {
+    "link_youtube_text": "Enter a youtube link"
+  },
+  "hotspots_lists": {
+    "not_found": "No hotspots found"
+  },
+  "toast": {
+    "extra_upload": "Extra uploaded",
+    "extra_deleted": "Extra deleted",
+    "extra_loading": "Going up extra",
+    "create_hotspot": "Touch the screen to create the hotspot",
+    "creating_hotspots": "Creating hotspot",
+    "hotspot_created": "Hotspot created",
+    "hotspot_removed": "Hotspot removed"
   }
 
 
