@@ -15,9 +15,11 @@ import {BiArrowToTop} from "react-icons/bi";
 import {FiDownload} from "react-icons/fi";
 import PopupListaHotspot from "./PopupListaHotspots";
 import { useNavigate } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 const  PopupNewHotspot =({id, extras,listaHotspots,onClickDeleteHotspot, handleCreateHotpotsExtra,addPdfVis}) =>{
 
+    const {t}=useTranslation('global')
     const navigate = useNavigate();
     const [imageSelected, setImageSelected] = useState(null);
     const [extraType, setExtraType] = useState("");
@@ -69,7 +71,7 @@ const  PopupNewHotspot =({id, extras,listaHotspots,onClickDeleteHotspot, handleC
 
         if(extraType===""){
             return <div style={{textAlign:"center"}}>
-                <h4>Seleccione un tipo de hotspot</h4>
+                <h4>{t("hotspot_popup.select_hotspot")}</h4>
             </div>
         }
         if(extraType==="video_youtube"){
@@ -168,7 +170,7 @@ const  PopupNewHotspot =({id, extras,listaHotspots,onClickDeleteHotspot, handleC
             return null;
         }
         return (
-                <input type="text" ref={nombreInputRef} autoComplete="false" value={inputTituloHotspotValue} onChange={(e)=>onChangeInputTitulo(e)} placeholder={"Ingrese un titulo o descripcion"} name="input-titulo"/>
+                <input type="text" ref={nombreInputRef} autoComplete="false" value={inputTituloHotspotValue} onChange={(e)=>onChangeInputTitulo(e)} placeholder={t("hotspot_popup.hotspot_title_placeholder")} name="input-titulo"/>
     );
     }
 
@@ -186,24 +188,24 @@ const  PopupNewHotspot =({id, extras,listaHotspots,onClickDeleteHotspot, handleC
                     <div className="header">
                         <div className="icono-anadir">
                             <TiArrowBack className="icon cursor-pointer" onClick={()=>navigate(-1)} fontSize={40}></TiArrowBack>
-                            <h5>Añadir hotspot</h5>
+                            <h5>{t("hotspot_popup.add_hotspot")}</h5>
                         </div>
                         <div className="buttons-container">
                             <div className={"button-type-extra " + (extraType === "vincular_extra" ? "activo" : "" )}  onClick={()=>setExtraType("vincular_extra")}>
                                 <img src="/iconos/enlace.png" alt=""/>
-                                <button>Vincular con extra</button>
+                                <button>{t("hotspot_popup.vinculate_extra")}</button>
                             </div>
                             <div className={"button-type-extra " + (extraType === "video_youtube" ? "activo" : "" )}  onClick={()=>setExtraType("video_youtube")}>
                                 <BsPlayCircle fontSize={25}></BsPlayCircle>
-                                <button>Video de youtube</button>
+                                <button>{t("hotspot_popup.youtube_video")}</button>
                             </div>
                             <div className={"button-type-extra " + (extraType === "pdf" ? "activo" : "" )}  onClick={()=>setExtraType("pdf")}>
                                 <BiArrowToTop fontSize={25}></BiArrowToTop>
-                                <button>Subir PDF</button>
+                                <button>{t("hotspot_popup.upload_pdf")}</button>
                             </div>
                             <div className={"button-type-extra " + (extraType === "hotspots " ? "activo" : "" )}  onClick={()=>setExtraType("hotspots")}>
                                 <img src="/iconos/lista_hotspot.png" alt =""/>
-                                <button>Lista de hotspot</button>
+                                <button>{t("hotspot_popup.hotpost_list")}</button>
                             </div>
 
                         </div>
@@ -235,7 +237,7 @@ const  PopupNewHotspot =({id, extras,listaHotspots,onClickDeleteHotspot, handleC
                       !!(imageSelected === null ||  nameValue === "")*/
                                             }
                                             onClick={()=>{ onCrear() }}
-                                    >Crear</button>
+                                    >{t("hotspot_popup.create")}</button>
                                 </div>
 
                             }

@@ -45,6 +45,7 @@ import {useDoubleTap} from "use-double-tap";
 import LottieSwipe from "../Animations/lottieSwipe";
 import AyudaPopup from "./popup/PopupAyuda";
 import PopupTerminos from "./popup/PopupTerminos";
+import {useTranslation} from "react-i18next";
 
 
 export function Visualizador({id, extras,edit,marketa}) {
@@ -99,6 +100,7 @@ export function Visualizador({id, extras,edit,marketa}) {
 
 
     const [logoEmpresa, setLogoEmpresa] = useState("/motors.png");
+    const { t } = useTranslation("global");
 
     if(webview==null){
         webview=false;
@@ -674,7 +676,7 @@ export function Visualizador({id, extras,edit,marketa}) {
     }
     const myHint = ()=>{
         return  <div style={{width:"300px",height:"300px"}}>
-            <h4 style={{textAlign:"center",color:"#212020", fontWeight:"bold"}}>Pulse y arrastre para mover</h4>
+            <h4 style={{textAlign:"center",color:"#212020", fontWeight:"bold"}}>{t("help.drag")}</h4>
             <LottieSwipe ></LottieSwipe>
         </div>
     }
@@ -1189,8 +1191,7 @@ export function Visualizador({id, extras,edit,marketa}) {
             <button  data-for='soclose6' data-tip="info" className={`button-escena-btn `} >
                 <img style={{width:"20px"}} src="/iconos/information.png" alt=""/>
             </button>
-            <ReactTooltip  id="soclose6" place="right" effect="solid"  disable={isMobile}> Información
-            </ReactTooltip>
+
         </div>
         </Link>
     }, []);
@@ -1201,8 +1202,6 @@ export function Visualizador({id, extras,edit,marketa}) {
             <button  data-for='soclose1' data-tip="Girar" className={`button-escena-btn ${isAutoPlayRunning===true ? " activo":""}`} >
                 <img src="/iconos/giro-carro.png" alt=""/>
             </button>
-            <ReactTooltip  id="soclose1" place="right" effect="solid"  disable={isMobile}> Girar
-            </ReactTooltip>
         </div>
     },[isAutoPlayRunning,isMobile]
 );
@@ -1303,9 +1302,9 @@ export function Visualizador({id, extras,edit,marketa}) {
                         </div>
 
 
-                <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"terminos"}>términos</Link></div>
+                <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"terminos"}>{t('help.terms')}</Link></div>
                 <div className={"separator"}>|</div>
-                <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"ayuda"}>ayuda</Link></div>
+                <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"ayuda"}>{t('help.help')}</Link></div>
             </div>
         </div>
             <Outlet/>

@@ -1,0 +1,28 @@
+{
+  "help": {
+    "drag": "Toca y arrastra para mover",
+    "help": "ayuda",
+    "terms": "terminos",
+    "help_step_one": "Haz clic o toca la pantalla y arrastra para ver el coche en 3D",
+    "help_step_two": "Toca los hotspots para ver mas información del auto",
+    "help_step_three": "Utilize la rueda del mouse o un gesto con dos dedos para acercar y alejar"
+  },
+  "close": {
+    "close": "cerrar"
+  },
+  "information_popup": {
+    "vehicle": "Vehiculo",
+    "year": "año",
+    "additional_note": "Nota adicional"
+  },
+  "hotspot_popup": {
+    "add_hotspot": "Añadir hotspot",
+    "upload_pdf": "Subir PDF",
+    "vinculate_extra": "Vincular extra",
+    "youtube_video": "Video de youtube",
+    "hotpost_list": "List de hotspots",
+    "select_hotspot": "Seleccione un tipo de hotspot",
+    "create": "Crear",
+    "hotspot_title_placeholder": "Ingrese un titulo o descripcion"
+  }
+}

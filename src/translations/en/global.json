@@ -1,0 +1,30 @@
+{
+  "help": {
+    "drag": "Tap and drag to move",
+    "help": "Help",
+    "terms": "Terms",
+    "help_step_one": "Click or touch the screen and drag to see the car in 3D",
+    "help_step_two": "Touch the hostpots to see more information",
+    "help_step_three": "Use the mouse wheel or a two-finger gesture to zoom in and out"
+  },
+  "close": {
+    "close": "close"
+  },
+  "information_popup": {
+    "vehicle": "Vehicle",
+    "year": "year",
+    "additional_note": "Additional note"
+  },
+  "hotspot_popup": {
+    "add_hotspot": "Add hotspot",
+    "upload_pdf": "Upload PDF",
+    "vinculate_extra": "Vinculate extra",
+    "youtube_video": "Youtube video",
+    "hotpost_list": "Hotspot list",
+    "select_hotspot": "select a hotspot type",
+    "create": "Create",
+    "hotspot_title_placeholder": "Enter a title or description"
+  }
+
+
+}

@@ -1,8 +1,7 @@
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import {EmailIcon} from "react-share";
-import {RiNumber1} from "react-icons/ri";
-import {TbNumber1, TbNumber2, TbNumber3, TbNumber4, TbNumber5, TbNumber6, TbNumber7, TbNumber8} from "react-icons/tb";
+
+import {TbNumber1, TbNumber2, TbNumber3, TbNumber4, TbNumber5} from "react-icons/tb";
 import "./Timeline.css"
 
 const Timeline =() =>{

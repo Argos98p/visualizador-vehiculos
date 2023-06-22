@@ -6,11 +6,13 @@ import {MdCancel} from "react-icons/md";
 import {Outlet} from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 import useWindowDimensions from "../../hooks/useWindowSize";
+import {useTranslation} from "react-i18next";
 
 const PopupInfoObjetct = ({imgForInfoModal, infoObjectData}) => {
 
     const navigate = useNavigate();
     const {height, width} = useWindowDimensions();
+    const {t} = useTranslation("global");
 
 
     const handleInfo = () => {
@@ -27,8 +29,8 @@ const PopupInfoObjetct = ({imgForInfoModal, infoObjectData}) => {
                         <div className="info-content">
                             <div className="info-content-title">
                                 <div className="titulo-precio-container">
-                                    <p className="titulo">Vehiculo - {info[0]} del {info[1]}</p>
-                                    <p>{info[0]}-Nuevo</p>
+                                    <p className="titulo">{t("information_popup.vehicle")} - {info[0]} {t("information_popup.year")} {info[1]}</p>
+                                    <p>{info[0]}</p>
                                 </div>
                                 <div>
                                     <p className="precio">USD {info[7]}{info[6]}</p>
@@ -38,7 +40,7 @@ const PopupInfoObjetct = ({imgForInfoModal, infoObjectData}) => {
 
                             </div>
                             <div>
-                                <p><b>Nota adicional</b></p>
+                                <p><b>{t("information_popup.additional_note")} </b></p>
                                 <p>{info[8]}</p>
 
                             </div>
