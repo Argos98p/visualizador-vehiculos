@@ -14,6 +14,7 @@ import 'photoswipe/dist/photoswipe.css'
 import Lightbox, { ImagesListType } from 'react-spring-lightbox';
 
 import {IoMdCloseCircle} from "react-icons/io";
+import {useTranslation} from "react-i18next";
 
 const  ReelImages = forwardRef(({idV,extrasImages, currentElement, isEditMode,searchHotspots},ref) => {
   const [imageList, setImageList]=useState([])
@@ -25,6 +26,7 @@ const  ReelImages = forwardRef(({idV,extrasImages, currentElement, isEditMode,se
   let idUsuario = localStorage.getItem("idUser");
 
   let navigate  = useNavigate()
+  const {t} = useTranslation("global")
 
 
   useImperativeHandle(ref, () => ({
@@ -81,7 +83,7 @@ const  ReelImages = forwardRef(({idV,extrasImages, currentElement, isEditMode,se
   }
 
   function uploadExtra(imagenFile){
-    const idToast = toast.loading("Subiendo extra...")
+    const idToast = toast.loading(t("toast.extra_loading"))
     const payload = new FormData();
     payload.append('extra',imagenFile)
     fetch(uploadExtraUrl(idV,imagenFile.name,'hola',idUsuario), {
@@ -94,7 +96,7 @@ const  ReelImages = forwardRef(({idV,extrasImages, currentElement, isEditMode,se
     ).then(function (res) {
       if (res.ok) {
 
-        toast.update(idToast, { render: "Extra subido", type: "success", isLoading: false, autoClose: 1000,draggable: true});
+        toast.update(idToast, { render:t("toast.extra_upload"), type: "success", isLoading: false, autoClose: 1000,draggable: true});
 
         setImageList([...imageList])
         getExtras();
@@ -156,18 +158,18 @@ const  ReelImages = forwardRef(({idV,extrasImages, currentElement, isEditMode,se
 
   function onClickDeleteExtra(idExtra){
 
-    const idToastEliminar = toast.loading("Eliminando extra...")
+    const idToastEliminar = toast.loading(t("toast.extra_deleting"))
 
     axios.post(deleteExtra(idV,idExtra,idUsuario),{},{headers: {
         'Authorization': `${token}`
       }})
         .then((response)=>{
           if(response.status === 200){
-            toast.update(idToastEliminar, { render: "Extra eliminado", type: "success", isLoading: false, autoClose: 1000,draggable: true});
+            toast.update(idToastEliminar, { render: t("toast.extra_deleted"), type: "success", isLoading: false, autoClose: 1000,draggable: true});
             getExtras();
             searchHotspots(idExtra);
           }else if(response.status === 401){
-            toast.update(idToastEliminar, { render: "Error usuario no autorizado", type: "error", isLoading: false, autoClose: 1000,draggable: true});
+            toast.update(idToastEliminar, { render: "Error user not authorized", type: "error", isLoading: false, autoClose: 1000,draggable: true});
           }
           else{
            // console.log(response);

@@ -9,9 +9,12 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import {uploadExtraUrl, verificaToken} from "./Api/apiRoutes";
 import Home from "./components/Home";
 import CuentaVerificada from "./components/cuentaVerificada/CuentaVerificada";
+import {useTranslation} from "react-i18next";
 
 
 function App() {
+
+    const {i18n} = useTranslation("global")
 
 
     const VisualizadorRedirect = () => {
@@ -27,6 +30,8 @@ function App() {
         const [searchParams, setSearchParams] = useSearchParams();
         let tk = searchParams.get("token");
         let idUser = searchParams.get("idUser");
+        let lang=searchParams.get("lang");
+        i18n.changeLanguage(lang);
 
         console.log(tk,idUser)
         if(webview){

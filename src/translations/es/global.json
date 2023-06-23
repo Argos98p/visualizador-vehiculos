@@ -38,10 +38,22 @@
   "toast": {
     "extra_upload": "Extra subido",
     "extra_deleted": "Extra eliminado",
+    "extra_deleting": "Eliminando extra..",
     "extra_loading": "Subiendo extra",
     "create_hotspot": "Toca la pantalla y crea el hotspot",
+    "create_hotspot2": "Doble click sobre la pantalla para crear el hotspot",
     "creating_hotspots": "Creando el hotspot",
     "hotspot_created": "Hotspot creado",
-    "hotspot_removed": "Hotspot eliminado"
+    "hotspot_removed": "Hotspot eliminado",
+    "hostpot_error": "Error creando el hotspot",
+    "copied_to_clipboard": "Copiado al portapeles",
+    "uploading_PDF": "Subiendo PDF",
+    "uploaded_PDF": "PDF Subido",
+    "pdf_upload_error": "Error subiendo el PDF",
+    "please_select_extra": "Porfavor seleccione un extra"
+  },
+  "share_popup": {
+    "share": "Compartir",
+    "copy_link" : "Copiar enlace"
   }
 }

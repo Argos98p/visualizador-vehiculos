@@ -389,11 +389,11 @@ export function Visualizador({id, extras,edit,marketa}) {
     useEffect(() => {
         if(addHotspotMode===true){
             if(isMobile){
-                toast.info('Toque la pantalla para crear el hotspot',{autoClose: 3000,
+                toast.info(t("toast.create_hotspot"),{autoClose: 3000,
                     hideProgressBar: true,theme:"dark"});
             }
             if(!isMobile){
-                toast.info('Doble click sobre la pantalla para crear el hotspot',{autoClose: 3000,
+                toast.info(t("toast.create_hotspot2"),{autoClose: 3000,
                     hideProgressBar: true,theme:"dark"});
             }
         }
@@ -453,7 +453,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                             'Authorization': `${token}`
                         }})
                         .then(response =>{
-                            toast.success(`Hotspot  ${nameHotspot} eliminado`,{autoClose: 2000,
+                            toast.success(t("toast.hotspot_removed"),{autoClose: 2000,
                                 hideProgressBar: true,theme:"dark"});
                             setUpdateHotspots(true);
                             setAwaitAddHotspot(false);
@@ -487,7 +487,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                         'Authorization': `${token}`
                     }})
                     .then(response =>{
-                        toast.success(`Hotspot: ${nameHotspot} eliminado`,{autoClose: 2000,
+                        toast.success(t("toast.hotspot_removed"),{autoClose: 2000,
                             hideProgressBar: true,theme:"dark"});
                         setUpdateHotspots(true);
                         setAwaitAddHotspot(false);
@@ -602,7 +602,7 @@ export function Visualizador({id, extras,edit,marketa}) {
             setAwaitAddHotspot(true);
             let bodyFormData = new FormData();
             bodyFormData.append('extra', file);
-            const toastHotspot = toast.loading("Subiendo PDF")
+            const toastHotspot = toast.loading(t("toast.uploading_PDF"))
             axios({
                 method: "post",
                 url: addExtraPdf(id,convertToSlug(file.name),"titulo", "titulo",idUsuario),
@@ -616,15 +616,15 @@ export function Visualizador({id, extras,edit,marketa}) {
                         setNameHotspot(titulo);
                         setAddHotspotMode(true);
                         setAwaitAddHotspot(false);
-                        toast.update(toastHotspot, { render: "PDF subido", type: "success", isLoading: false, autoClose: 1000,draggable: true});
+                        toast.update(toastHotspot, { render: t("uploaded_PDF"), type: "success", isLoading: false, autoClose: 1000,draggable: true});
                     }else{
-                        toast.update(toastHotspot, { render: "Error subiendo PDF"  +response, type: "success", isLoading: false, autoClose: 1000,draggable: true});
+                        toast.update(toastHotspot, { render: t("toast.pdf_upload_error")  +response, type: "error", isLoading: false, autoClose: 1000,draggable: true});
                     }
                 })
                 .catch(function (response) {
                     setAwaitAddHotspot(false);
                     console.log(response);
-                    toast.update(toastHotspot, { render: "Error subiendo PDF", type: "error", isLoading: false, autoClose: 1000,draggable: true});
+                    toast.update(toastHotspot, { render: t("toast.pdf_upload_error") , type: "error", isLoading: false, autoClose: 1000,draggable: true});
 
                 });
         }
@@ -654,7 +654,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                     setNameHotspot(titulo);
                     setAddHotspotMode(true);
                 }else{
-                    toast.error('Porfavor seleccione un extra',{autoClose: 2000,
+                    toast.error(t("toast.please_select_extra"),{autoClose: 2000,
                         hideProgressBar: true,theme:"dark"});
                 }
         }
@@ -758,7 +758,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                     escenasSrcImages.push(
                             <Tridi ref={  show  && loadStatus ? tridiRef :null}
                                    hintOnStartup={index === '0'}
-                                   hintText={"Arraste para mover"}
+                                   hintText={"Arrastre para mover"}
                                    renderHint={myHint}
 
                                   key={index}
@@ -990,7 +990,7 @@ export function Visualizador({id, extras,edit,marketa}) {
         return arrayHotspots;
     }
     const frameReplicateOneReference=(lastPin)=>{
-        const newHotspotToast = toast.loading("Creando hotspot");
+        const newHotspotToast = toast.loading(t("toast.creating_hotspots"));
         if(objetoData.escenas[activeEscena].nombre === "puertas_cerradas" || objetoData.escenas[activeEscena].nombre === "puertas_abiertas"){
 
 
@@ -1005,7 +1005,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                         postNewHotspots(id, "puertas_abiertas",arrayPuertasAbiertas).then(
                             response => {
                                 if(response.status === 200){
-                                    toast.update(newHotspotToast, { render:`Hotspot  ${nameHotspot} creado en escenas 1 y 2`, type: "success", isLoading: false, autoClose: 2000,draggable: true});
+                                    toast.update(newHotspotToast, { render:t("toast.hotspot_created"), type: "success", isLoading: false, autoClose: 2000,draggable: true});
                                     setUpdateObjectData(true);
                                     setUpdateExtras(true);
                                     setAwaitAddHotspot(false);
@@ -1016,7 +1016,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                             }).catch(
                             (e)=>{
 
-                                toast.update(newHotspotToast, { render:`Error creando hotspot`+e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
+                                toast.update(newHotspotToast, { render:t("toast.hostpot_error")+e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
                                 setAddHotspotMode(false);
                                 setAwaitAddHotspot(false);
                             }
@@ -1027,7 +1027,7 @@ export function Visualizador({id, extras,edit,marketa}) {
             ).catch(
                 (e)=>{
 
-                    toast.update(newHotspotToast, { render:`Error creando hotspot` +e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
+                    toast.update(newHotspotToast, { render:t("toast.hostpot_error") +e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
 
                     console.log(e)
                     setAwaitAddHotspot(false);
@@ -1045,11 +1045,11 @@ export function Visualizador({id, extras,edit,marketa}) {
                     setAwaitAddHotspot(false);
                     setAddHotspotMode(false)
                     setUpdateHotspots(true);
-                    toast.update(newHotspotToast, { render:`Hotspot  ${nameHotspot} creado`, type: "success", isLoading: false, autoClose: 2000,draggable: true});
+                    toast.update(newHotspotToast, { render:t("toast.hotspot_created"), type: "success", isLoading: false, autoClose: 2000,draggable: true});
 
                 }).catch(
                 (e)=>{
-                    toast.update(newHotspotToast, { render:`Error creando hotspot` +e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
+                    toast.update(newHotspotToast, { render:t("toast.hostpot_error")  +e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
                     console.log(e)
                     setAwaitAddHotspot(false);
                     setAddHotspotMode(false)
@@ -1113,12 +1113,12 @@ export function Visualizador({id, extras,edit,marketa}) {
                 }
                 let data = [];
                 data.push(newPin)
-                const newHotspots360 = toast.loading("Creando hotspot");
+                const newHotspots360 = toast.loading(t("toast.creating_hotspots"));
 
                 axios.post(postAddHotspot(id, "interior",idUsuario), data,{headers:{'Authorization': `${token}`}}).then(r  =>{
                     if (r.status === 200){
 
-                        toast.update(newHotspots360, { render:`Hotspot  ${nameHotspot} creado`, type: "success", isLoading: false, autoClose: 2000,draggable: true});
+                        toast.update(newHotspots360, { render:t("toast.hotspot_created"), type: "success", isLoading: false, autoClose: 2000,draggable: true});
                         setUpdateObjectData(true);
                         setUpdateExtras(true);
                         setAwaitAddHotspot(false);
@@ -1126,7 +1126,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                         setUpdateHotspots(true);
                     }
                 }).catch(e=>{
-                    toast.update(newHotspots360, { render:`Error creando hotspot`+e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
+                    toast.update(newHotspots360, { render:t("toast.hostpot_error")+e, type: "error", isLoading: false, autoClose: 2000,draggable: true});
                     setAddHotspotMode(false);
                     setAwaitAddHotspot(false);
                 });

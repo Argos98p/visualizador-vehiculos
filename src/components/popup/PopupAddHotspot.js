@@ -141,7 +141,7 @@ const  PopupNewHotspot =({id, extras,listaHotspots,onClickDeleteHotspot, handleC
                                     <input {...getInputProps()} />
                                     <h1>PDF</h1>
                                     <FiDownload className={"icon"}></FiDownload>
-                                    <p>Arraste o pulse para subir un archivo PDF</p>
+                                    <p>{t("pdf_popup.upload_text")}</p>
                                 </div>
                             </section>
                         )}

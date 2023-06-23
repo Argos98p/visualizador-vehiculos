@@ -1,8 +1,8 @@
 {
   "help": {
     "drag": "Tap and drag to move",
-    "help": "Help",
-    "terms": "Terms",
+    "help": "help",
+    "terms": "terms",
     "help_step_one": "Click or touch the screen and drag to see the car in 3D",
     "help_step_two": "Touch the hostpots to see more information",
     "help_step_three": "Use the mouse wheel or a two-finger gesture to zoom in and out"
@@ -37,11 +37,23 @@
   "toast": {
     "extra_upload": "Extra uploaded",
     "extra_deleted": "Extra deleted",
+    "extra_deleting": "Removing extra",
     "extra_loading": "Going up extra",
     "create_hotspot": "Touch the screen to create the hotspot",
+    "create_hotspot2": "Double click on the screen to create the hotspot",
     "creating_hotspots": "Creating hotspot",
     "hotspot_created": "Hotspot created",
-    "hotspot_removed": "Hotspot removed"
+    "hotspot_removed": "Hotspot removed",
+    "hostpot_error": "Error creating hotspot",
+    "copied_to_clipboard": "Copied to clipboard",
+    "uploading_PDF": "Uploading PDF",
+    "uploaded_PDF": "Uploaded PDF",
+    "pdf_upload_error": "Error uploading PDF",
+    "please_select_extra": "Please select extra"
+  },
+  "share_popup": {
+    "share": "Share",
+    "copy_link" : "Copy link"
   }
 
 

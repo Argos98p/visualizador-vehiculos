@@ -12,14 +12,16 @@ import copy from 'copy-to-clipboard';
 import {MdClose} from "react-icons/md";
 import {useNavigate, useParams} from "react-router-dom";
 import {toast} from "react-toastify";
+import {useTranslation} from "react-i18next";
 
 const PopupCompartir = () =>{
+    const {t} = useTranslation("global")
     let {id} = useParams();
     const navigate = useNavigate();
     const urlToShare = `http://3dmotores.com/preview/object/${id}`;
     const onClickCopy= () =>{
         copy(`http://3dmotores.com/preview/object/${id}`);
-        toast.info('Link copiado al portapapeles',{autoClose: 3000,
+        toast.info(t("toast.copied_to_clipboard"),{autoClose: 3000,
             hideProgressBar: true,theme:"dark"});
     }
     return <Popup
@@ -33,7 +35,7 @@ const PopupCompartir = () =>{
                 <MdClose/>
             </button>
             <div className="popup-compartir-title">
-                Compartir
+                {t("share_popup.share")}
             </div>
             <div className="popup-compartir_social-buttons">
                 <WhatsappShareButton url={urlToShare} >
@@ -63,7 +65,7 @@ const PopupCompartir = () =>{
             </div>
 
             <div className="popup-compartir_button-copiar-enlace">
-                    <button onClick={()=>onClickCopy()}> Copiar Enlace</button>
+                    <button onClick={()=>onClickCopy()}> {t("share_popup.copy_link")}</button>
             </div>
 
         </div>
