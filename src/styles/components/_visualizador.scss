@@ -382,6 +382,22 @@
       margin-left: 0.5em;
       margin-right: 0.5em;
     }
+    .btn-blur{
+      width: 34px;
+      height: 34px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      -webkit-box-shadow: rgba(0,0,0,0.8) -3px 0px 5px 0px;
+      -moz-box-shadow: rgba(0,0,0,0.8) -3px 0px 5px 0px;
+      box-shadow: rgba(0,0,0,0.8) -3px 0px 5px 0px;
+      color:$primary-color ;
+      cursor:pointer;
+
+
+    }
   }
   .visualizador_navigation-container {
     display: -webkit-flex;
@@ -513,8 +529,6 @@
       }
     }
   }
-
-
 }
 
 .visualizador_open-reel-button{

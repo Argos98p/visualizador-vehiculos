@@ -22,17 +22,16 @@ import {
 import ButtonEscena from "./botones/buttonEscena";
 import LottieEmptyEscenas from "../Animations/lottieEmptyEscena";
 import PopupNewHotspot from "./popup/PopupAddHotspot";
-import ReactTooltip from "react-tooltip";
 import "react-tridi/dist/index.css";
 import "./visualizador_style.css";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DotLoader from "react-spinners/DotLoader";
 import PopupInfoObjetct from "./popup/PopupInfoObjetct";
-import {BsChevronDown, BsChevronUp} from "react-icons/bs";
+import {BsChevronDown, BsChevronUp, BsDroplet, BsDropletFill} from "react-icons/bs";
 import PopupCompartir from "./popup/PopupCompartir";
 import ToogleButton from "./botones/ToogleButton";
-import {FaFile, FaFilm, FaImage, FaInfo, FaShare} from "react-icons/fa";
+import {FaFile, FaFilm, FaImage, FaShare} from "react-icons/fa";
 import {Link, Outlet, Route, Routes, useNavigate} from "react-router-dom";
 
 import useWindowDimensions from "../hooks/useWindowSize";
@@ -46,6 +45,7 @@ import LottieSwipe from "../Animations/lottieSwipe";
 import AyudaPopup from "./popup/PopupAyuda";
 import PopupTerminos from "./popup/PopupTerminos";
 import {useTranslation} from "react-i18next";
+import Editor from "./editor/Editor";
 
 
 export function Visualizador({id, extras,edit,marketa}) {
@@ -80,6 +80,8 @@ export function Visualizador({id, extras,edit,marketa}) {
     const [visibleHotspots,setVisibleHotspots] = useState(true);
     const [fetchImgSinfondo, setFetchImgSinFondo] = useState(false);
 
+    const [idForEditor, setIdForEditor]=useState("")
+
 
     const [showHintText, setShowHintText] = useState(true);
 
@@ -100,6 +102,7 @@ export function Visualizador({id, extras,edit,marketa}) {
 
 
     const [logoEmpresa, setLogoEmpresa] = useState("/motors.png");
+    const [blurMode, setBlurMode] = useState(false);
     const { t } = useTranslation("global");
 
     if(webview==null){
@@ -125,7 +128,10 @@ export function Visualizador({id, extras,edit,marketa}) {
                     }
 
                     setImgForModal(completeImageUrl(`/${id}${response.data.escenas[0].imagenes[1].path}`));
+                    setIdForEditor(id+"/"+response.data.escenas[0].imagenes[1].path.split("/")[1])
+
                     setFrames(numberOfFrames)
+
                 }
 
             }
@@ -561,6 +567,15 @@ export function Visualizador({id, extras,edit,marketa}) {
 
         </label>
     }
+
+    const buttonBlur=()=>{
+
+        if(isEditMode){
+            return <div className={"btn-blur"} onClick={()=>setBlurMode(true)}><BsDropletFill></BsDropletFill></div>
+        }
+        return null;
+
+    }
     const botonAgregarHotspot=()=>{
         if(isEditMode){
             return   <Link to={'agregarHotspot'}><img className="visualizador_btn-add-hotspot cursor-pointer"  src="/iconos/btn-editar-hotspot.png" alt=""/></Link>
@@ -616,7 +631,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                         setNameHotspot(titulo);
                         setAddHotspotMode(true);
                         setAwaitAddHotspot(false);
-                        toast.update(toastHotspot, { render: t("uploaded_PDF"), type: "success", isLoading: false, autoClose: 1000,draggable: true});
+                        toast.update(toastHotspot, { render: t("toast.uploaded_PDF"), type: "success", isLoading: false, autoClose: 1000,draggable: true});
                     }else{
                         toast.update(toastHotspot, { render: t("toast.pdf_upload_error")  +response, type: "error", isLoading: false, autoClose: 1000,draggable: true});
                     }
@@ -1246,67 +1261,79 @@ export function Visualizador({id, extras,edit,marketa}) {
             }
         }
     }
+
+
+
     return (
         <>
-        <div className="visualizador dragging" onContextMenu={(e)=> {e.preventDefault();}}>
-            {logoCompany()}
-            {buttonOpenReel()}
-            <ToastContainer />
-            <div key={"buttons"} className="visualizador_top-buttons ">
-                {botonCompartir()}
-                {botonVisibleHotspots()}
-
-                {/*botonInfoObject()*/}
-                {botonAgregarHotspot()}
-                {/*botonQuitarFondo()*/}
-            </div>
-            {/*botonModoEdicion()*/}
-            <div key={"reel"} ref={extraContainerRef} className="visualizador_reel">
-                {buttonCloseReel()}
-                <ReelImages idV={id}
-                            currentElement={currentImage}
-                            key={'reel'}
-                            ref={extraInViewRef}
-                            extrasImages={extras}
-                            isEditMode={isEditMode} searchHotspots={searchHotspots}></ReelImages>
-            </div>
-            <div  key={"tridi-container-div"} ref={tridiContainerRef}  className="tridi-container-div">
-                {
-                    loadAllTridiComponents()
-                }
-            </div>
             {
-                <div className="visualizador_navigation-container" key={"escenas-giro"} >
-                    {botonesEscenas}
-                    {botonAutoGiro}
-                    {botonInformacion}
-                </div>
-            }
-            {
-                awaitAddHotspot
-                    ?  <div key={"await-hotspot"} className="await-hotspot"><DotLoader color="#0087D1"></DotLoader> </div>
-                    : null
-            }
-            <div className={"bottomBar"}>
+                blurMode
 
-                        <div className={"buttonBottomBar"}>
-                            {
-                                isMobile
-                                ?<a href={"https://www.3dspaceinc.com/contenido/motors/3DSpaceINC-Gu%C3%ADa-de-carros-2022-3.pdf"} target="_blank">
-                                        <img  src={"/motors_logo.png"}  alt={"d"}/>
-                                    </a>
-                                    :  <a href={"https://3dspaceinc.com/motors"} target="_blank"><img  src={"/motors_logo.png"}  alt={"d"}/></a>
+                ? <Editor exitBlurMode={()=>setBlurMode(false)} objectId={id} idEditor={idForEditor}/>
+                    :         <div className="visualizador dragging" onContextMenu={(e)=> {e.preventDefault();}}>
+                        {logoCompany()}
+                        {buttonOpenReel()}
+                        <ToastContainer />
+                        <div key={"buttons"} className="visualizador_top-buttons ">
+                            {buttonBlur()}
+                            {botonCompartir()}
+                            {botonVisibleHotspots()}
 
-                            }
 
+                            {/*botonInfoObject()*/}
+                            {botonAgregarHotspot()}
+                            {/*botonQuitarFondo()*/}
                         </div>
+                        {/*botonModoEdicion()*/}
+                        <div key={"reel"} ref={extraContainerRef} className="visualizador_reel">
+                            {buttonCloseReel()}
+                            <ReelImages idV={id}
+                                        currentElement={currentImage}
+                                        key={'reel'}
+                                        ref={extraInViewRef}
+                                        extrasImages={extras}
+                                        isEditMode={isEditMode} searchHotspots={searchHotspots}></ReelImages>
+                        </div>
+                        <div  key={"tridi-container-div"} ref={tridiContainerRef}  className="tridi-container-div">
+                            {
+                                loadAllTridiComponents()
+                            }
+                        </div>
+                        {
+                            <div className="visualizador_navigation-container" key={"escenas-giro"} >
+                                {botonesEscenas}
+                                {botonAutoGiro}
+                                {botonInformacion}
+                            </div>
+                        }
+                        {
+                            awaitAddHotspot
+                                ?  <div key={"await-hotspot"} className="await-hotspot"><DotLoader color="#0087D1"></DotLoader> </div>
+                                : null
+                        }
+                        <div className={"bottomBar"}>
+
+                            <div className={"buttonBottomBar"}>
+                                {
+                                    isMobile
+                                        ?<a href={"https://www.3dspaceinc.com/contenido/motors/3DSpaceINC-Gu%C3%ADa-de-carros-2022-3.pdf"} target="_blank">
+                                            <img  src={"/motors_logo.png"}  alt={"d"}/>
+                                        </a>
+                                        :  <a href={"https://3dspaceinc.com/motors"} target="_blank"><img  src={"/motors_logo.png"}  alt={"d"}/></a>
+
+                                }
+
+                            </div>
 
 
-                <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"terminos"}>{t('help.terms')}</Link></div>
-                <div className={"separator"}>|</div>
-                <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"ayuda"}>{t('help.help')}</Link></div>
-            </div>
-        </div>
+                            <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"terminos"}>{t('help.terms')}</Link></div>
+                            <div className={"separator"}>|</div>
+                            <div className={"buttonBottomBar"}><Link className={"textBottomBar"} to={"ayuda"}>{t('help.help')}</Link></div>
+                        </div>
+                    </div>
+
+                        }
+
             <Outlet/>
             <Routes>
                 <Route  path="/info" element={<PopupInfoObjetct imgForInfoModal={imgForInfoModal} infoObjectData={infoObjectData}></PopupInfoObjetct>

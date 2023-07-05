@@ -49,12 +49,16 @@
     "uploading_PDF": "Uploading PDF",
     "uploaded_PDF": "Uploaded PDF",
     "pdf_upload_error": "Error uploading PDF",
-    "please_select_extra": "Please select extra"
+    "please_select_extra": "Please select extra",
+    "save_blur_coordinate": "Saved",
+    "remove": "Deleted",
+    "sending": "Sending.."
   },
   "share_popup": {
     "share": "Share",
     "copy_link" : "Copy link"
   }
+
 
 
 }

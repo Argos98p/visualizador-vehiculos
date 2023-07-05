@@ -50,7 +50,10 @@
     "uploading_PDF": "Subiendo PDF",
     "uploaded_PDF": "PDF Subido",
     "pdf_upload_error": "Error subiendo el PDF",
-    "please_select_extra": "Porfavor seleccione un extra"
+    "please_select_extra": "Porfavor seleccione un extra",
+    "save_blur_coordinate": "Guardado",
+    "remove": "Eliminado",
+    "sending": "Enviando.."
   },
   "share_popup": {
     "share": "Compartir",

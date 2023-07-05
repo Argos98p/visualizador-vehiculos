@@ -22,6 +22,9 @@ function numberFramesInScene(id,escena){
 function completeImageUrl(path){
     return `${BaseURL}/ObjetosVirtuales${path}`;
 }
+function blurImages(){
+    return `${BaseURL}/objects/censorimages`;
+}
 
 function getExtrasUrl(id){
     return `${BaseURL}/objects/getextras?idobjeto=${id}`
@@ -76,4 +79,4 @@ function verificaToken(idUser){
 function loginUser(){
     return `${BaseURL}:8086/api/auth/signin`
 }
-export {logoEmpresaImage,verificaToken,viewResource,loginUser,addLinkYoutube,img360CompleteUrl,getPDF,addExtraPdf,deleteHotspot,uploadExtraUrl,infoObjectUrl,getHotspots,completeImageUrl,getExtrasUrl,ImagePath,postAddHotspot,deleteExtra}
+export {blurImages,logoEmpresaImage,verificaToken,viewResource,loginUser,addLinkYoutube,img360CompleteUrl,getPDF,addExtraPdf,deleteHotspot,uploadExtraUrl,infoObjectUrl,getHotspots,completeImageUrl,getExtrasUrl,ImagePath,postAddHotspot,deleteExtra}
