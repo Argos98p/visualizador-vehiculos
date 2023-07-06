@@ -30,7 +30,6 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
         if(ref.current!=null){
             setCropDivHeight(ref.current.clientHeight)
             setCropDivWidth(ref.current.clientWidth)
-            console.log(ref.current.clientHeight,ref.current.clientWidth)
         }
 
     })
@@ -42,17 +41,14 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
             .then(function (response) {
                 //response.data.escenas[0].imagenes.map(path=>)
                 let result = Object.values(response.data.escenas[0].imagenes);
-                console.log(result)
                 let imagenes = result.map(
                     (e) => `https://3dmotores.com/ObjetosVirtuales/${objectId}${e.path}`.replace("frames","frames_compresos")
                 );
-                console.log(imagenes)
                 setFrames(imagenes);
                 const img = new Image();
                 img.src =  imagenes[0];
                 img.onload = () => {
-                    console.log(img.height);
-                    console.log(img.width);
+
                     setOriginalImageSize([img.width,img.height])
                 };
             })
@@ -223,7 +219,7 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
                         }}
                     >
                         <img ref={ref}
-                            src={`https://3dmotores.com/ObjetosVirtuales/421/341/frames_compresos/${frameSelected+1}.jpg`}
+                            src={`https://3dmotores.com/ObjetosVirtuales/${idEditor}/frames_compresos/${frameSelected+1}.jpg`}
                             alt={"f"}
                         />
                     </ReactCrop>

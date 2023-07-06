@@ -570,7 +570,7 @@ export function Visualizador({id, extras,edit,marketa}) {
 
     const buttonBlur=()=>{
 
-        if(isEditMode){
+        if(!isEditMode){
             return <div className={"btn-blur"} onClick={()=>setBlurMode(true)}><BsDropletFill></BsDropletFill></div>
         }
         return null;
