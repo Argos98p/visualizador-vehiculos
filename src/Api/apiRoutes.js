@@ -11,7 +11,7 @@ function infoObjectUrl(id){
 }
 
 function logoEmpresaImage(idUser){
-    return `https://3dmotores.com/images/getuserimage?idusuario=${idUser}`
+    return `${BaseURL}/ObjetosVirtuales/usuarios/${idUser}/${idUser}.jpg`
 }
 
 /*
