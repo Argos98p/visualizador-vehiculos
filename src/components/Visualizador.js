@@ -1269,13 +1269,15 @@ export function Visualizador({id, extras,edit,marketa}) {
             {
                 blurMode
 
-                ? <Editor exitBlurMode={()=>setBlurMode(false)} objectId={id} idEditor={idForEditor}/>
+                ? isEditMode? <Editor exitBlurMode={()=>setBlurMode(false)} objectId={id} idEditor={idForEditor}/> : null
                     :         <div className="visualizador dragging" onContextMenu={(e)=> {e.preventDefault();}}>
                         {logoCompany()}
                         {buttonOpenReel()}
                         <ToastContainer />
                         <div key={"buttons"} className="visualizador_top-buttons ">
-                            {buttonBlur()}
+
+                            {isEditMode ?buttonBlur():null }
+
                             {botonCompartir()}
                             {botonVisibleHotspots()}
 
