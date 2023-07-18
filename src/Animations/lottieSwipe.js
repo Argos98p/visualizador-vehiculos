@@ -1,6 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie';
-import * as animationData from '../lottieFiles/swipe.json'
+import * as animationData from '../lottieFiles/swipeAnimation.json'
 
 export default class LottieSwipe extends React.Component {
 
