@@ -1264,7 +1264,6 @@ export function Visualizador({id, extras,edit,marketa}) {
 
     return (
         <>
-            <a href="https://3dmotores.com/ObjetosVirtuales/434/378/imagen360/interior.jpg">https://3dmotores.com/ObjetosVirtuales/434/378/imagen360/interior.jpg</a>
             {
                 blurMode
 
