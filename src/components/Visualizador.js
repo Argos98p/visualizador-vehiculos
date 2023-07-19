@@ -359,12 +359,10 @@ export function Visualizador({id, extras,edit,marketa}) {
         }
         setActiveEscena(escena.toString())
         setPins(prepararPins(hotspotsMap[escena]));
-        console.log("cambia de escena")
     }
     useEffect( () => {
         async function fetchData() {
             const myDiv = tridiContainerRef.current;
-            console.log(myDiv)
             let activeTridi = Array.from(myDiv.querySelectorAll('.visible .info-value '))[0];
             let aux= 0;
             if (tridiContainerRef.current!==undefined) {
@@ -1266,6 +1264,7 @@ export function Visualizador({id, extras,edit,marketa}) {
 
     return (
         <>
+            <a href="https://3dmotores.com/ObjetosVirtuales/434/378/imagen360/interior.jpg">https://3dmotores.com/ObjetosVirtuales/434/378/imagen360/interior.jpg</a>
             {
                 blurMode
 
