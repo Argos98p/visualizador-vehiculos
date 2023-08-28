@@ -24,11 +24,21 @@ function Controller({editMode,marketa}) {
 
                 }else{
 
-                    var submapaConClave0 = response.data.escenas["0"];
-
+                
+                var submapaConClave0 = response.data.escenas["0"];
                 delete response.data.escenas["0"];
 
-                    response.data.escenas["0"] = submapaConClave0;
+                var submapaConClave1 = response.data.escenas["1"];
+                delete response.data.escenas["1"];
+
+                var submapaConClave2 = response.data.escenas["2"];
+                delete response.data.escenas["2"];
+
+
+
+                response.data.escenas["0"] = submapaConClave1;
+                response.data.escenas["1"] = submapaConClave2;
+                response.data.escenas["2"] = submapaConClave0;
                     setMyObjeto(response.data);
                     axios.get(getExtrasUrl(id))
                         .then((response)=>{

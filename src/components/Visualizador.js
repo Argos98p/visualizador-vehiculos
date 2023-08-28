@@ -118,10 +118,19 @@ export function Visualizador({id, extras,edit,marketa}) {
 
 
                     var submapaConClave0 = response.data.escenas["0"];
-
                     delete response.data.escenas["0"];
 
-                    response.data.escenas["3"] = submapaConClave0;
+                    var submapaConClave1 = response.data.escenas["1"];
+                    delete response.data.escenas["1"];
+
+                    var submapaConClave2 = response.data.escenas["2"];
+                    delete response.data.escenas["2"];
+
+
+
+                    response.data.escenas["0"] = submapaConClave1;
+                    response.data.escenas["1"] = submapaConClave2;
+                    response.data.escenas["2"] = submapaConClave0;
 
                     console.log(response.data)
 
@@ -135,7 +144,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                         numberOfFrames[index] = Object.keys(response.data.escenas[index].imagenes).length;
                     }
                     console.log(numberOfFrames);
-                    if(numberOfFrames[3]===2){
+                    if(numberOfFrames[2]===2){
                         setInterior360(true)
                     }
                     if(response.data.idusuario!=null ){
@@ -203,10 +212,19 @@ export function Visualizador({id, extras,edit,marketa}) {
             response=>{
                 if (response.status===200){
                     var submapaConClave0 = response.data.escenas["0"];
+                    delete response.data.escenas["0"];
 
-                delete response.data.escenas["0"];
+                    var submapaConClave1 = response.data.escenas["1"];
+                    delete response.data.escenas["1"];
 
-                    response.data.escenas["0"] = submapaConClave0;
+                    var submapaConClave2 = response.data.escenas["2"];
+                    delete response.data.escenas["2"];
+
+
+
+                    response.data.escenas["0"] = submapaConClave1;
+                    response.data.escenas["1"] = submapaConClave2;
+                    response.data.escenas["2"] = submapaConClave0;
                     setObjetoData(response.data);
                 }
 
@@ -245,7 +263,10 @@ export function Visualizador({id, extras,edit,marketa}) {
         if(loadStatus === true){
             console.log("load status change");
             if (tridiContainerRef.current!==undefined) {
-                tridiRef.current.imageIndex(20);
+                if(tridiRef != null && tridiRef.current != null && tridiRef.current.imageIndex != null){
+                    tridiRef.current.imageIndex(20);
+
+                }
             }
 
         }
@@ -269,8 +290,7 @@ export function Visualizador({id, extras,edit,marketa}) {
     }
 
     const getArraySrcPath =(escena)=>{
-        console.log(escena);
-        console.log(interior360)
+        console.log(escena)
         if(escena.nombre==="interior" && interior360){
             console.log(escena.imagenes[1].path)
             if(isMobile === true){
@@ -391,7 +411,7 @@ export function Visualizador({id, extras,edit,marketa}) {
             const myDiv = tridiContainerRef.current;
             let activeTridi = Array.from(myDiv.querySelectorAll('.visible .info-value '))[0];
             let aux= 0;
-            if (tridiContainerRef.current!==undefined) {
+            if (tridiContainerRef.current!==undefined && tridiRef !=null && tridiRef.current!= null) {
                 tridiRef.current.imageIndex(currentFrameIndex)
                 //tridiContainerRef.current.imageIndex();
                 /*
@@ -728,6 +748,8 @@ export function Visualizador({id, extras,edit,marketa}) {
 
                 show=activeEscena===index
                 let imagesSrcOneScene = getArraySrcPath(escenas[index]);
+                
+
                 try{
                     if(imagesSrcOneScene.length === 0 ){
                     escenasSrcImages.push(
@@ -738,8 +760,11 @@ export function Visualizador({id, extras,edit,marketa}) {
                         </div>
                     )}
                 else if(imagesSrcOneScene.length === 1){
+
+
                     if(hotspotsMap!==undefined || hotspotsMap["2"]!== undefined ||  hotspotsMap["2"])
                     {
+                     console.log(imagesSrcOneScene[0]);
                         escenasSrcImages.push(
                             <div className={show && loadStatus ? "" : "abajo"} key={index}>
                                 <Pannellum
