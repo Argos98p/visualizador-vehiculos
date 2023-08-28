@@ -17,7 +17,7 @@ const PopupInfoObjetct = ({imgForInfoModal, infoObjectData}) => {
 
     const handleInfo = () => {
         if (infoObjectData !== undefined) {
-            let info = infoObjectData.split(",");
+            let info = infoObjectData;
             return <Popup className="popup-info-container"
                           onClose={() => navigate(-1)}
                           open={true}
@@ -29,19 +29,19 @@ const PopupInfoObjetct = ({imgForInfoModal, infoObjectData}) => {
                         <div className="info-content">
                             <div className="info-content-title">
                                 <div className="titulo-precio-container">
-                                    <p className="titulo">{t("information_popup.vehicle")} - {info[0]} {t("information_popup.year")} {info[1]}</p>
-                                    <p>{info[0]}</p>
+                                    <p className="titulo">{t("information_popup.vehicle")} - {info["modelo"]} {t("information_popup.year")} {info["anio"]}</p>
+                                    <p>{info["modelo"]}</p>
                                 </div>
                                 <div>
-                                    <p className="precio">USD {info[7]}{info[6]}</p>
-                                    <p className="user">{info[10] !== "" ? info[10] : "3DMotor's "} <FaUserCircle
+                                    <p className="precio">USD {info[7]}{info["precio"]}</p>
+                                    <p className="user">{info["representante"] !== "" ? info["representante"] : "3DMotor's "} <FaUserCircle
                                         className={"icon"}></FaUserCircle></p>
                                 </div>
 
                             </div>
                             <div>
                                 <p><b>{t("information_popup.additional_note")} </b></p>
-                                <p>{info[8]}</p>
+                                <p>{info["descripcion"]}</p>
 
                             </div>
                         </div>
