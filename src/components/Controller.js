@@ -23,6 +23,12 @@ function Controller({editMode,marketa}) {
                     setNoEscenas(true)
 
                 }else{
+
+                    var submapaConClave0 = response.data.escenas["0"];
+
+                delete response.data.escenas["0"];
+
+                    response.data.escenas["0"] = submapaConClave0;
                     setMyObjeto(response.data);
                     axios.get(getExtrasUrl(id))
                         .then((response)=>{

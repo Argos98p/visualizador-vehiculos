@@ -96,6 +96,11 @@ export function VisualizadorObjetos({id, extras,edit,marketa}) {
         axios.get(infoObjectUrl(id)).then(
             response=>{
                 if (response.status===200){
+                    var submapaConClave0 = response.data.escenas["0"];
+
+                delete response.data.escenas["0"];
+
+                    response.data.escenas["0"] = submapaConClave0;
                     setObjetoData(response.data);
                     setInfoObjectData(response.data.info);
                     let numberOfFrames = {};

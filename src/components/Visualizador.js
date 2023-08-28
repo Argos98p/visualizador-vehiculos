@@ -113,13 +113,29 @@ export function Visualizador({id, extras,edit,marketa}) {
         axios.get(infoObjectUrl(id)).then(
             response=>{
                 if (response.status===200){
+
+                    
+
+
+                    var submapaConClave0 = response.data.escenas["0"];
+
+                    delete response.data.escenas["0"];
+
+                    response.data.escenas["3"] = submapaConClave0;
+
+                    console.log(response.data)
+
                     setObjetoData(response.data);
+                    
                     setInfoObjectData(response.data.info);
+
+
                     let numberOfFrames = {};
                     for(let index in response.data.escenas){
                         numberOfFrames[index] = Object.keys(response.data.escenas[index].imagenes).length;
                     }
-                    if(numberOfFrames[2]===2){
+                    console.log(numberOfFrames);
+                    if(numberOfFrames[3]===2){
                         setInterior360(true)
                     }
                     if(response.data.idusuario!=null ){
@@ -182,8 +198,15 @@ export function Visualizador({id, extras,edit,marketa}) {
 
     useEffect(() => {
         axios.get(infoObjectUrl(id)).then(
+
+
             response=>{
                 if (response.status===200){
+                    var submapaConClave0 = response.data.escenas["0"];
+
+                delete response.data.escenas["0"];
+
+                    response.data.escenas["0"] = submapaConClave0;
                     setObjetoData(response.data);
                 }
 
@@ -246,7 +269,10 @@ export function Visualizador({id, extras,edit,marketa}) {
     }
 
     const getArraySrcPath =(escena)=>{
+        console.log(escena);
+        console.log(interior360)
         if(escena.nombre==="interior" && interior360){
+            console.log(escena.imagenes[1].path)
             if(isMobile === true){
                 return [img360CompleteUrl(escena.imagenes[1].path,id)]
             }else{
