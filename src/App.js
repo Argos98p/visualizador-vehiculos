@@ -33,7 +33,6 @@ function App() {
         let lang=searchParams.get("lang");
         i18n.changeLanguage(lang);
 
-        console.log(tk,idUser)
         if(webview){
             localStorage.setItem('webview',true);
         }else{
@@ -58,7 +57,6 @@ function App() {
                 navigation(`/visualizador/view/${id}`);
                 return <Navigate to={`/visualizador/view/${id}`} />
             }else{
-                console.log(r.status)
             }
         }
         );

@@ -71,11 +71,9 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
 
 
     useEffect(() => {
-        console.log(savedCoordinates);
     }, [selectMode])
 
     const verifyFrame = (n) => {
-        //console.log(n)
         //console.log(frameSelected+1)
         //console.log(Object.keys(savedCoordinates))
         //console.log(Object.keys(savedCoordinates).includes((frameSelected+1).toString()))
@@ -87,6 +85,7 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
         newCoordinates["y"]=Math.round(originalImageSize[1]*y/cropDivHeight);
         newCoordinates["width"]=Math.round(originalImageSize[0]*w/cropDivWidth);
         newCoordinates["height"]=Math.round(originalImageSize[1]*h/cropDivHeight);
+        console.log(newCoordinates);
         return newCoordinates
     }
 

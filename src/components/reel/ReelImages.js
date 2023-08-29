@@ -244,7 +244,7 @@ const  ReelImages = forwardRef(({idV,extrasImages, currentElement, isEditMode,se
           (isEditMode) ?
               <div key={"opok"} className=' div-subirExtra cursor-pointer '>
                 <ImageUploading
-                    multiple
+                    multiple={false}
                     value={images}
                     onChange={onChange}
                     dataURLKey="data_url"

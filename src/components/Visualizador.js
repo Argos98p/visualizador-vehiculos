@@ -132,7 +132,6 @@ export function Visualizador({id, extras,edit,marketa}) {
                     response.data.escenas["1"] = submapaConClave2;
                     response.data.escenas["2"] = submapaConClave0;
 
-                    console.log(response.data)
 
                     setObjetoData(response.data);
                     
@@ -143,7 +142,6 @@ export function Visualizador({id, extras,edit,marketa}) {
                     for(let index in response.data.escenas){
                         numberOfFrames[index] = Object.keys(response.data.escenas[index].imagenes).length;
                     }
-                    console.log(numberOfFrames);
                     if(numberOfFrames[2]===2){
                         setInterior360(true)
                     }
@@ -290,7 +288,6 @@ export function Visualizador({id, extras,edit,marketa}) {
     }
 
     const getArraySrcPath =(escena)=>{
-        console.log(escena)
         if(escena.nombre==="interior" && interior360){
             console.log(escena.imagenes[1].path)
             if(isMobile === true){
@@ -614,7 +611,7 @@ export function Visualizador({id, extras,edit,marketa}) {
 
     const buttonBlur=()=>{
 
-        if(!isEditMode){
+        if(isEditMode){
             return <div className={"btn-blur"} onClick={()=>setBlurMode(true)}><BsDropletFill></BsDropletFill></div>
         }
         return null;
@@ -682,7 +679,6 @@ export function Visualizador({id, extras,edit,marketa}) {
                 })
                 .catch(function (response) {
                     setAwaitAddHotspot(false);
-                    console.log(response);
                     toast.update(toastHotspot, { render: t("toast.pdf_upload_error") , type: "error", isLoading: false, autoClose: 1000,draggable: true});
 
                 });
@@ -1153,7 +1149,6 @@ export function Visualizador({id, extras,edit,marketa}) {
     }
 
     const handleAddNewHotspot=(e)=>{
-        console.log("entra una vez")
         if(addHotspotMode  && activeEscena!=="2"){
             setAwaitAddHotspot(true);
             frameReplicateOneReference(calculaUbicacionHotspot(e));
@@ -1200,7 +1195,6 @@ export function Visualizador({id, extras,edit,marketa}) {
     const doubleClickOnTridi = (e) =>{
 
         if(!isMobile){
-            console.log("tambien entra")
             handleAddNewHotspot(e);
         }
 
@@ -1325,11 +1319,11 @@ export function Visualizador({id, extras,edit,marketa}) {
                         <ToastContainer />
                         <div key={"buttons"} className="visualizador_top-buttons ">
 
-                            {isEditMode ?buttonBlur():null }
+                            
 
                             {botonCompartir()}
                             {botonVisibleHotspots()}
-
+                            {isEditMode ?buttonBlur():null }
 
                             {/*botonInfoObject()*/}
                             {botonAgregarHotspot()}
