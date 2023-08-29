@@ -69,7 +69,9 @@ function getPDF(id,path){
 }
 
 function viewResource(id,path){
-    return `${BaseURL}/images/viewresource/pdf?path=${path}`
+    
+    return `${BaseURL}/ObjetosVirtuales/${path}`;
+    //return `${BaseURL}/images/viewresource/pdf?path=${path}`
 }
 
 function verificaToken(idUser){

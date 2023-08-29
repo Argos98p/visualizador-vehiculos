@@ -342,6 +342,7 @@ export function Visualizador({id, extras,edit,marketa}) {
             await sleep(240);
         }
                 let extraInHotspot = searchExtra(pin.idExtra);
+
                 if(extraInHotspot.hasOwnProperty("imagen")){
                     extraInViewRef.current.onExtra(pin.idExtra);
                 }
@@ -1393,6 +1394,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                 }} />
                 }></Route>
                 <Route path="/extraPdf" element={<div className={"modal-pdf-container"} >
+                    console.log(extraPdfOrVideo.path);
                     <Popup open={true} className={`${isMobile && webview==='false' ? "pdf-modal-celular" : webview==='true' ?"pdf-modal-webview" :"pdf-modal "}`}  onClose={()=> returnRoute()} position="right center">
                         <div className={"container-iframe-modal"}>
                             <iframe id="iframepdf" src={viewResource(id,extraPdfOrVideo.path)}  title="myFrame"></iframe>
