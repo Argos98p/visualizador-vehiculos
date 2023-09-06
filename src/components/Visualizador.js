@@ -46,6 +46,7 @@ import AyudaPopup from "./popup/PopupAyuda";
 import PopupTerminos from "./popup/PopupTerminos";
 import {useTranslation} from "react-i18next";
 import Editor from "./editor/Editor";
+import { BiRefresh } from "react-icons/bi";
 
 
 export function Visualizador({id, extras,edit,marketa}) {
@@ -67,6 +68,7 @@ export function Visualizador({id, extras,edit,marketa}) {
     const [loadStatus, setLoadStatus] = useState(false);
     const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
     const [activeEscena, setActiveEscena] = useState("0"); //escena que esta activa lo hace con
+    const [idsEscenas,setIdsEscenas] = useState([]);
 
     const [extraPdfOrVideo, setExtraPdfOrVideo] = useState({});
     const [infoObjectData, setInfoObjectData] = useState("");
@@ -113,10 +115,7 @@ export function Visualizador({id, extras,edit,marketa}) {
         axios.get(infoObjectUrl(id)).then(
             response=>{
                 if (response.status===200){
-
-                    
-
-
+                
                     var submapaConClave0 = response.data.escenas["0"];
                     delete response.data.escenas["0"];
 
@@ -131,6 +130,19 @@ export function Visualizador({id, extras,edit,marketa}) {
                     response.data.escenas["0"] = submapaConClave1;
                     response.data.escenas["1"] = submapaConClave2;
                     response.data.escenas["2"] = submapaConClave0;
+
+                    var escenasids = []
+                    for (const escena in response.data.escenas){
+                        escenasids.push(response.data.escenas[escena].imagenes['1'].path.split("/")[1])                    
+                    }
+                    setIdsEscenas(escenasids)
+
+                    /*
+                    Object.keys(response.data.escenas)
+
+                    response.data.escenas.
+                    console.log(   )*/
+                    
 
 
                     setObjetoData(response.data);
@@ -151,7 +163,7 @@ export function Visualizador({id, extras,edit,marketa}) {
                     }
 
                     setImgForModal(completeImageUrl(`/${id}${response.data.escenas[0].imagenes[1].path}`));
-                    setIdForEditor(id+"/"+response.data.escenas[0].imagenes[1].path.split("/")[1])
+                    setIdForEditor(id+"/"+response.data.escenas[activeEscena].imagenes['1'].path.split("/")[1])
 
                     setFrames(numberOfFrames)
 
@@ -401,6 +413,8 @@ export function Visualizador({id, extras,edit,marketa}) {
         if(tridiRef.current!=null){
             tridiRef.current.toggleAutoplay(false);
         }
+
+        setIdForEditor(id+'/'+idsEscenas[escena])
         setActiveEscena(escena.toString())
         setPins(prepararPins(hotspotsMap[escena]));
     }
@@ -612,7 +626,7 @@ export function Visualizador({id, extras,edit,marketa}) {
 
     const buttonBlur=()=>{
 
-        if(isEditMode){
+        if(isEditMode && activeEscena!=='2'){
             return <div className={"btn-blur"} onClick={()=>setBlurMode(true)}><BsDropletFill></BsDropletFill></div>
         }
         return null;
@@ -1265,6 +1279,10 @@ export function Visualizador({id, extras,edit,marketa}) {
     },[isAutoPlayRunning,isMobile]
 );
 
+const botonRecargar=()=>{
+    return <BiRefresh size={30} color="#0087D1"/>
+}
+
     const logoCompany = ()=>{
 
         if(marketa){
@@ -1313,11 +1331,17 @@ export function Visualizador({id, extras,edit,marketa}) {
             {
                 blurMode
 
-                ? isEditMode? <Editor exitBlurMode={()=>setBlurMode(false)} objectId={id} idEditor={idForEditor}/> : null
+                ? isEditMode? <Editor exitBlurMode={()=>setBlurMode(false)} objectId={id} activeEscena={activeEscena} idEditor={idForEditor}/> : null
                     :         <div className="visualizador dragging" onContextMenu={(e)=> {e.preventDefault();}}>
                         {logoCompany()}
                         {buttonOpenReel()}
                         <ToastContainer />
+
+                        <div className="visualizador_refresh-button" onClick={()=>window.location.reload(true)}>
+
+                            {botonRecargar()}
+                        </div>
+
                         <div key={"buttons"} className="visualizador_top-buttons ">
 
                             
@@ -1330,6 +1354,8 @@ export function Visualizador({id, extras,edit,marketa}) {
                             {botonAgregarHotspot()}
                             {/*botonQuitarFondo()*/}
                         </div>
+
+
                         {/*botonModoEdicion()*/}
                         <div key={"reel"} ref={extraContainerRef} className="visualizador_reel">
                             {buttonCloseReel()}

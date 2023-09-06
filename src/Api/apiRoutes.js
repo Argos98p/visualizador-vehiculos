@@ -31,6 +31,7 @@ function getExtrasUrl(id){
 }
 
 function ImagePath(pathImage){
+    
     return `${BaseURL}/ObjetosVirtuales/${pathImage}`;
 }
 
@@ -48,7 +49,7 @@ function uploadExtraUrl(id,archivo,descripcion,idUsuario){
 }
 
 function img360CompleteUrl(path,id){
-    return `${BaseURL}/ObjetosVirtuales${path}`;
+    return `${BaseURL}/ObjetosVirtuales${path}?${new Date().getTime().toString}`;
 }
 function getHotspots(id, nombreEscena){
     return `${BaseURL}/objects/gethotspots?idobjeto=${id}&nombre_escena=${nombreEscena}`

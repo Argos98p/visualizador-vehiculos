@@ -12,7 +12,7 @@ import {useTranslation} from "react-i18next";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import {blurImages} from "../../Api/apiRoutes";
-export default function Editor({exitBlurMode,objectId,idEditor}) {
+export default function Editor({exitBlurMode,objectId,idEditor, activeEscena}) {
     const { t } = useTranslation("global");
     const [crop, setCrop] = useState();
     const [frames, setFrames] = useState([]);
@@ -25,6 +25,8 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
     const [cropDivHeight, setCropDivHeight] = useState(0);
     const [cropDivWidth, setCropDivWidth] = useState(0);
     const ref = useRef(null)
+
+    console.log(idEditor)
 
     useEffect(() => {
         if(ref.current!=null){
@@ -39,8 +41,21 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
         axios
             .get("https://3dmotores.com/objects/getobject?idobjeto="+objectId)
             .then(function (response) {
-                //response.data.escenas[0].imagenes.map(path=>)
-                let result = Object.values(response.data.escenas[0].imagenes);
+                console.log(response.data)
+                
+                    var submapaConClave0 = response.data.escenas["0"];
+                    delete response.data.escenas["0"];
+                    var submapaConClave1 = response.data.escenas["1"];
+                    delete response.data.escenas["1"];
+                    var submapaConClave2 = response.data.escenas["2"];
+                    delete response.data.escenas["2"];
+                    response.data.escenas["0"] = submapaConClave1;
+                    response.data.escenas["1"] = submapaConClave2;
+                    response.data.escenas["2"] = submapaConClave0;                    
+
+                let result = Object.values(response.data.escenas[activeEscena].imagenes);
+                
+                
                 let imagenes = result.map(
                     (e) => `https://3dmotores.com/ObjetosVirtuales/${objectId}${e.path}`.replace("frames","frames_compresos")
                 );
@@ -69,9 +84,6 @@ export default function Editor({exitBlurMode,objectId,idEditor}) {
     };
 
 
-
-    useEffect(() => {
-    }, [selectMode])
 
     const verifyFrame = (n) => {
         //console.log(frameSelected+1)
