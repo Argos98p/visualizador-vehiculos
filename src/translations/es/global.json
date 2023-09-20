@@ -2,7 +2,7 @@
   "help": {
     "drag": "Toca y arrastra para mover",
     "help": "ayuda",
-    "terms": "terminos",
+    "terms": "términos",
     "help_step_one": "Haz clic o toca la pantalla y arrastra para ver el coche en 3D",
     "help_step_two": "Toca los hotspots para ver mas información del auto",
     "help_step_three": "Utilize la rueda del mouse o un gesto con dos dedos para acercar y alejar"
@@ -11,7 +11,7 @@
     "close": "cerrar"
   },
   "information_popup": {
-    "vehicle": "Vehiculo",
+    "vehicle": "Vehículo",
     "year": "año",
     "additional_note": "Nota adicional"
   },
@@ -20,17 +20,18 @@
     "upload_pdf": "Subir PDF",
     "vinculate_extra": "Vincular extra",
     "youtube_video": "Video de youtube",
-    "hotpost_list": "List de hotspots",
+    "hotpost_list": "Lista de hotspots",
     "select_hotspot": "Seleccione un tipo de hotspot",
     "create": "Crear",
-    "hotspot_title_placeholder": "Ingrese un titulo o descripcion"
+    "hotspot_title_placeholder": "Ingrese un título o descripcion"
   },
 
   "pdf_popup": {
     "upload_text": "Arrastra o toca para cargar un archivo PDF"
   },
   "youtube_popup": {
-    "link_youtube_text": "Introduce un enlace de youtube"
+    "link_youtube_text": "Introduce un enlace de youtube",
+    "to_youtube": "Ir a youtube"
   },
   "hotspots_lists": {
     "not_found": "No se encontraron hotspots"

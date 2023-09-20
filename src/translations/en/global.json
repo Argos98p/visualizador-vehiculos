@@ -29,7 +29,8 @@
     "upload_text": "Drag or tap to upload a PDF file"
   },
   "youtube_popup": {
-    "link_youtube_text": "Enter a youtube link"
+    "link_youtube_text": "Enter a youtube link",
+    "to_youtube": "Go to youtube"
   },
   "hotspots_lists": {
     "not_found": "No hotspots found"

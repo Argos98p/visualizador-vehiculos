@@ -228,3 +228,18 @@
 
   }
 }
+
+.goto-youtube-button{
+  cursor: pointer;
+  background-color: #c4302b;
+  width: fit-content;
+
+  border-radius: 1.5em;
+  height: 2.5em;
+  padding: 5px 12px;
+}
+
+.container-goto-youtube-button{
+  display: flex;
+  justify-content: flex-end;
+}
