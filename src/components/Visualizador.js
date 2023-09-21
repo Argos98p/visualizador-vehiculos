@@ -103,7 +103,7 @@ export function Visualizador({id, extras,edit,marketa}) {
 
 
 
-    const [logoEmpresa, setLogoEmpresa] = useState("/motors.png");
+    const [logoEmpresa, setLogoEmpresa] = useState("");
     const [blurMode, setBlurMode] = useState(false);
     const { t } = useTranslation("global");
 
@@ -124,8 +124,6 @@ export function Visualizador({id, extras,edit,marketa}) {
 
                     var submapaConClave2 = response.data.escenas["2"];
                     delete response.data.escenas["2"];
-
-
 
                     response.data.escenas["0"] = submapaConClave1;
                     response.data.escenas["1"] = submapaConClave2;
@@ -1292,7 +1290,7 @@ const botonRecargar=()=>{
 
                 <img src={logoEmpresa} onError={({ currentTarget }) => {
                     currentTarget.onerror = null; // prevents looping
-                    currentTarget.src="/motors.png";
+                    //currentTarget.src="/motors.png";
                 }} />
 
             </div>
