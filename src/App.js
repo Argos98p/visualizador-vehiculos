@@ -57,7 +57,7 @@ function App() {
                 navigation(`/visualizador/view/${id}`);
                 return <Navigate to={`/visualizador/view/${id}`} />
             }else{
-                return <Navigate to={`/visualizador/view/${id}`} />
+                return <Navigate to={`/visualizador/edit/${id}`} />
             }
         }
         );
