@@ -42,6 +42,11 @@ function App() {
             navigation(`/visualizador/view/${id}`);
             return <Navigate to={`/visualizador/view/${id}`} />
         }
+        localStorage.setItem('token', tk);
+        localStorage.setItem("idUser",idUser)
+
+        return <Navigate to={`/visualizador/edit/${id}`} />
+
         fetch(verificaToken(idUser), {
             method: "POST",
             headers: {
