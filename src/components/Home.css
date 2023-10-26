@@ -1,18 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 
 .home-page-container{
-    font-family: 'Lato', sans-serif;
-    background-color: #1e2125;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 4em  2em;
+    font-family: 'Roboto', sans-serif;
 
-    /*#background-color: #fff;
+    background: rgb(234,238,244);
+    background: linear-gradient(90deg, rgba(234,238,244,1) 0%, rgba(235,235,255,1) 15%, rgba(194,199,255,1) 100%);
+}
 
-    #width: 100vw;
-    #height: 100vh;
-    #display: flex;
-    #flex-direction: column;
-    #justify-content: center;
-    #align-items: center;*/
+.titulo{
+    flex: 1;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.titulo>h1{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.contenedor-flex{
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;*/
+    /*flex: 1 1 0px;*/
+    position: relative;
+}
+.contenedor-flex>div{
+    padding-left: 1em;
+}
+.ilustracion-titulo{
+    position: relative;
+    /*flex: 1;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ilustracion-titulo>img{
+    object-fit: contain;
+    width: 100%;
+    border-radius: 1em;
+}
+
+.imagen-play{
+    width: 80% !important;
+}
+.imagen-play-button{
+    width: 40%;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page-container>div{
+
+}
+
+.margintop-4{
+    margin-top: 5em !important;
+}
+.number{
+    padding: 0!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 0;
+
+    background-color: #0087D1;
+    color: white;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+}
+
+.right-0{
+    right: 0;
+}
+.left-0{
+    left: 0;
+}
+
+.titulo{
+    position: relative;
+
+}
+
+/*
+.home-page-container{
+
 
 }
 h1{
@@ -42,6 +133,7 @@ h1{
     font-weight: bold;
 }
 
+*/
 /*
 .image-container{
     width: 40vw;
