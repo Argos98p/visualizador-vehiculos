@@ -59,5 +59,10 @@
   "share_popup": {
     "share": "Compartir",
     "copy_link" : "Copiar enlace"
+  },
+  "correo-cuenta-verificada": {
+    "cuenta-verificada": "¡Tu cuenta está verificada! Ahora, te guiaremos a través de cómo aprovechar al máximo la aplicación 3D MOTOR's. Podrás grabar, añadir hotspots y publicar tus creaciones en nuestro e-commerce de manera sencilla y efectiva.",
+    "video-tutorial": "Ver video tutorial",
+    "cerrar-ventana": "Puedes cerrar esta ventana"
   }
 }

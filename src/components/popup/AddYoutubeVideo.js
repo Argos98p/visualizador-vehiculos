@@ -11,7 +11,6 @@ const AddYoutubeVideo= ({onHandleInputYoutube})=>{
 
             <div className={"container-goto-youtube-button"}>
                 <div className={"goto-youtube-button"} onClick={()=>window.open("https://www.youtube.com/", '_blank')}> <p>{t("youtube_popup.to_youtube")}</p> </div>
-
             </div>
 
         </>

@@ -58,6 +58,11 @@
   "share_popup": {
     "share": "Share",
     "copy_link" : "Copy link"
+  },
+  "correo-cuenta-verificada": {
+    "cuenta-verificada": "Your account is verified! Now, we will guide you on how to make the most of the 3D MOTOR's app. You'll be able to record, add hotspots, and publish your creations on our e-commerce platform easily and effectively.",
+    "video-tutorial": "Watch video tutorial",
+    "cerrar-ventana": "You can close this window"
   }
 
 
