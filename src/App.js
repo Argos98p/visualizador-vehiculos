@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import {uploadExtraUrl, verificaToken} from "./Api/apiRoutes";
 import Home from "./components/Home";
 import CuentaVerificada from "./components/cuentaVerificada/CuentaVerificada";
+import PrivacyPage from "./components/privacyPage/privacyPage";
 import {useTranslation} from "react-i18next";
 
 
@@ -74,6 +75,7 @@ function App() {
             <Routes>
 
                 <Route path={"/cuentaverificada"} element={<CuentaVerificada/>} />
+                <Route path={"/privacy"} element={<PrivacyPage/>} />
                 <Route index element={<Home/>} />
                 {/*en la siguiente linea va false*/}
                 <Route path="/visualizador/view/:id/*" element={<Controller editMode={false} marketa={false}/> } />

@@ -1,0 +1,84 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+.cuenta-verificada{
+      font-family: 'Roboto', sans-serif;
+    background-color: #151b2a;
+    min-height: 100vh;
+    padding-top: 1em;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white
+
+}
+
+.cuenta-verificada>div{
+
+    background-color: #1f273f;;
+}
+@media (max-width: 720px) {
+    .text-center2{
+        font-size: 1.3em !important;
+    }
+
+    .cerrar-ventana{
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 330px) {
+    .text-center2{
+        font-size: 0.8em !important;
+    }
+
+    .cerrar-ventana{
+        font-size: 0.4em;
+    }
+}
+
+
+.header2 {
+    padding: 30px;
+    text-align: left;
+    background: #212529;
+    color: #212529;
+    font-size: 30px;
+}
+.img2{
+    width:200px;
+    height: 100px;
+}
+
+/*
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    align-content: center;
+    alignment-baseline: center;
+    align-items: center;
+}*/
+
+.m-30{
+    margin: 30px;
+}
+
+.text-center2-privacy{
+    font-size: 1em;
+    align-content: center;
+    alignment-baseline: center;
+    align-items: center;
+}
+.bold{
+    font-weight: bold;
+}
+.m-left{
+    margin-left: 3em;
+    margin-right: 30px;
+}
+.cerrar-ventana{
+    font-size: 1em;
+}

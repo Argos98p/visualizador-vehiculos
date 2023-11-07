@@ -63,8 +63,47 @@
     "cuenta-verificada": "Your account is verified! Now, we will guide you on how to make the most of the 3D MOTOR's app. You'll be able to record, add hotspots, and publish your creations on our e-commerce platform easily and effectively.",
     "video-tutorial": "Watch video tutorial",
     "cerrar-ventana": "You can close this window"
+  },
+
+  "privacy": {
+    "title": "Privacy Policy for 3D Motors",
+    "LastUpdated": "7/11/23",
+    "Introduction": "Welcome to 3D Motors. We respect your privacy and are committed to protecting your personal information. This Privacy Policy is designed to help you understand how we collect, use, disclose, and safeguard your information. By using our app, you consent to the practices described in this Privacy Policy.",
+    "InformationWeCollect": {
+      "title":"Information We Collect",
+      "InformationYouProvide": "When using our app, you may be asked to provide information, including but not limited to your name, email address, and details about your car, such as its model, year, and other information relevant to selling a car. You may also upload videos, images, and files related to your car.",
+      "LocationInformation": "We may collect your location information when you sign in to the app for pricing purposes. Please note that you have the option to disable location sharing in your device settings."
+    },
+    "HowWeUseYourInformation": {
+      "title":"How We Use Your Information",
+      "description":"We may use your information for various purposes, including but not limited to:",
+      "ProvidingMaintainingImproving": "Providing, maintaining, and improving our app and its features.",
+      "ProcessingStoringContent": "Processing and storing videos, images, and other uploaded content related to your car.",
+      "CensoringContent": "Censoring faces and license plates in uploaded videos for privacy and security."
+    },
+    "SharingYourInformation": {
+      "title":"Sharing Your Information",
+      "description":"We do not share your information or the content you upload with third parties, except in the following circumstances:",
+      "WithServiceProviders": "With service providers who assist us in delivering our app and related services.",
+      "WithThirdParties": "With third parties, when you choose to interact with their services through our app.",
+      "LegalRequirements": "When required by law, or to protect our rights, privacy, safety, or property."
+    },
+    "LocationInformation": {
+      "title":"Location Information",
+      "description":"We collect your location information for pricing purposes, but this data is not shared with third parties. You can disable location sharing in your device settings."
+    },
+    "PaymentInformation": {
+        "title":"Payment Information",
+        "description":"We do not collect or save payment information. We use a third-party payment service, PayPal, for payment processing. Please refer to PayPal's privacy policy for details on how they handle your payment information."
+    },
+    "Security": {
+        "title":"Security",
+        "description":"We take reasonable steps to protect your information and content, but cannot guarantee its absolute security. You should take measures to protect your personal data, such as choosing strong passwords and keeping them confidential."
+    },
+    "ChangesToPrivacyPolicy": {
+        "title":"Changes to this Privacy Policy",
+        "description":"We may update this Privacy Policy from time to time. If we make significant changes, we will notify you through the app or by other means. Your continued use of our app after such changes indicates your acceptance of the revised Privacy Policy."
+    }
   }
-
-
 
 }

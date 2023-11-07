@@ -64,5 +64,47 @@
     "cuenta-verificada": "¡Tu cuenta está verificada! Ahora, te guiaremos a través de cómo aprovechar al máximo la aplicación 3D MOTOR's. Podrás grabar, añadir hotspots y publicar tus creaciones en nuestro e-commerce de manera sencilla y efectiva.",
     "video-tutorial": "Ver video tutorial",
     "cerrar-ventana": "Puedes cerrar esta ventana"
+  },
+
+  "privacy": {
+    "title": "Politicas de privacidad de 3D Motors",
+    "LastUpdated": "7/11/23",
+    "Introduction": "Bienvenido a 3D Motors. Respetamos su privacidad y estamos comprometidos en proteger su información personal. Esta Política de Privacidad está diseñada para ayudarle a comprender cómo recopilamos, usamos, divulgamos y protegemos su información. Al utilizar nuestra aplicación, usted consiente las prácticas descritas en esta Política de Privacidad.",
+    "InformationWeCollect": {
+      "title":"Información Que Recopilamos",
+      "InformationYouProvide": "Información Que Usted Proporciona: Al usar nuestra aplicación, es posible que se le solicite que proporcione información, incluyendo, entre otros, su nombre, dirección de correo electrónico y detalles sobre su automóvil, como su modelo, año y otra información relevante para la venta de un automóvil. También puede cargar vídeos, imágenes y archivos relacionados con su automóvil.",
+      "LocationInformation": "Información de Ubicación: Podemos recopilar su información de ubicación cuando inicie sesión en la aplicación con fines de fijación de precios. Tenga en cuenta que tiene la opción de desactivar el intercambio de ubicación en la configuración de su dispositivo."
+    },
+    "HowWeUseYourInformation": {
+      "title":"Cómo Usamos Su Información",
+      "description":"Podemos utilizar su información para diversos fines, incluyendo, pero no limitado a:",
+      "ProvidingMaintainingImproving": "Proporcionar, mantener y mejorar nuestra aplicación y sus características.",
+      "ProcessingStoringContent": "Procesar y almacenar vídeos, imágenes y otro contenido cargado relacionado con su automóvil.",
+      "CensoringContent": "Censurar rostros y matrículas en vídeos cargados para proteger la privacidad y la seguridad."
+    },
+    "SharingYourInformation": {
+      "title":"Compartir Su Información",
+      "description":"No compartimos su información ni el contenido que carga con terceros, excepto en las siguientes circunstancias:",
+      "WithServiceProviders": "Con proveedores de servicios que nos ayudan a entregar nuestra aplicación y servicios relacionados.",
+      "WithThirdParties": "Con terceros, cuando elija interactuar con sus servicios a través de nuestra aplicación.",
+      "LegalRequirements": "Cuando lo requiera la ley o para proteger nuestros derechos, privacidad, seguridad o propiedad."
+    },
+    "LocationInformation":{
+        "title":"Información de Ubicación",
+        "description":"Recopilamos su información de ubicación con fines de fijación de precios, pero estos datos no se comparten con terceros. Puede desactivar el intercambio de ubicación en la configuración de su dispositivo."
+    },
+    "PaymentInformation": {
+        "title":"Información de Pago",
+        "description":"No recopilamos ni guardamos información de pago. Utilizamos un servicio de pago de terceros, PayPal, para el procesamiento de pagos. Consulte la política de privacidad de PayPal para obtener detalles sobre cómo gestionan su información de pago."
+    },
+    "Security": {
+        "title":"Seguridad",
+        "description":"Tomamos medidas razonables para proteger su información y contenido, pero no podemos garantizar su seguridad absoluta. Debe tomar medidas para proteger sus datos personales, como elegir contraseñas seguras y mantenerlas confidenciales."
+    },
+    "ChangesToPrivacyPolicy": {
+        "title":"Cambios en las Políticas de Privacidad",
+        "description":"Podemos actualizar esta Política de Privacidad de vez en cuando. Si realizamos cambios significativos, le notificaremos a través de la aplicación u otros medios. Su uso continuado de nuestra aplicación después de dichos cambios indica su aceptación de la Política de Privacidad revisada."
+    }
   }
+
 }
