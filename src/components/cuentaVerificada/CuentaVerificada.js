@@ -6,11 +6,11 @@ const CuentaVerificada = () => {
     const lenguaje = navigator.language || navigator.userLanguage;
     let idioma = lenguaje.split("-")[0];
 
-    if(idioma==='es'){
-        i18n.changeLanguage('es');
-    }else{
+    // if(idioma==='es'){
+        // i18n.changeLanguage('es');
+    // }else{
         i18n.changeLanguage('en');
-    }
+    // }
     console.log(idioma);
     return (
         <>
